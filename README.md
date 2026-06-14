@@ -98,6 +98,7 @@ css_addadmin <steamid64> <group> <immunity>  # Add new admin [@css/root]
 css_removeadmin <steamid64>                  # Remove admin [@css/root]
 css_adminlist                                # List all admins [@css/root]
 css_admins                                   # Show online admins [All players]
+css_hideadmin                                # Toggle hiding all admins from !admins (session only, not saved) [@css/root|@css/ban|@css/generic]
 ```
 
 ### 📊 Report System Commands
