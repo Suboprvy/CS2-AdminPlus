@@ -479,7 +479,37 @@ public partial class AdminPlus
             OpenMenu(admin, m);
         }
     }
+    private void ShowServerModesMenu(CCSPlayerController caller)
+    {
+        var options = new List<ChatMenuOptionData>();
+    
+        foreach (var mode in _serverModes.Modes)
+        {
+            options.Add(new ChatMenuOptionData(
+                mode.Name,
+                () => ExecuteServerMode(caller, mode)
+            ));
+        }
+    
+        OpenChatMenu(
+            caller,
+            "Server Modes",
+            options);
+    }
 
+    private void ExecuteServerMode(
+    CCSPlayerController admin,
+    ServerMode mode)
+{
+    foreach (var cmd in mode.Commands)
+    {
+        Server.ExecuteCommand(cmd);
+    }
+
+    Logger.LogInformation(
+        $"{admin.PlayerName} executed server mode {mode.Name}");
+}
+    
     private void ShowFunCleanupMenu(CCSPlayerController admin)
     {
         var m = CreateMenu(Localizer["Menu.Fun.Cat.Cleanup"]);
@@ -817,6 +847,7 @@ public partial class AdminPlus
         options.Add(new ChatMenuOptionData(Localizer["Menu.Option.Money"], () => ShowMoneyMenu(admin)));
         options.Add(new ChatMenuOptionData(Localizer["Menu.Option.Armor"], () => ShowArmorMenu(admin)));
         options.Add(new ChatMenuOptionData(Localizer["Menu.Fun.Cat.TeamOps"], () => ShowFunTeamOpsMenu(admin)));
+        options.Add(new ChatMenuOptionData("Server Modes", () => ShowServerModesMenu(caller)));
 
         foreach (var menuOptionData in options)
         {
