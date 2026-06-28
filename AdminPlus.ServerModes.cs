@@ -1,20 +1,20 @@
-using System;
-using System.IO;
-using System.Linq;
 using System.Collections.Generic;
-using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 
-public class ServerModeConfig
+namespace AdminPlus;
+
+public partial class AdminPlus
 {
-    public int RestartDelay { get; set; } = 1;
+    private class ServerModeConfig
+    {
+        public List<ServerMode> Modes { get; set; } = new();
+    }
 
-    public List<ServerMode> Modes { get; set; } = new();
-}
+    private class ServerMode
+    {
+        public string Name { get; set; } = "";
+        public List<string> Commands { get; set; } = new();
+    }
 
-public class ServerMode
-{
-    public string Name { get; set; } = "";
-
-    public List<string> Commands { get; set; } = new();
+    private ServerModeConfig _serverModes = new();
 }
