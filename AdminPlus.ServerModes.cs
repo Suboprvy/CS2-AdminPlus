@@ -16,5 +16,5 @@ public partial class AdminPlus
         public List<string> Commands { get; set; } = new();
     }
 
-    private ServerModeConfig _serverModes = new();
+    
 }
