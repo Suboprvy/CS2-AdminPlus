@@ -490,11 +490,6 @@ public partial class AdminPlus
                 () => ExecuteServerMode(caller, mode)
             ));
         }
-    
-        OpenChatMenu(
-            caller,
-            "Server Modes",
-            options);
     }
 
     private void ExecuteServerMode(
