@@ -46,7 +46,8 @@ public partial class AdminPlus : BasePlugin
     private DateTime _lastBanCacheRefreshUtc = DateTime.MinValue;
     private DateTime _lastUserBanWriteUtc = DateTime.MinValue;
     private DateTime _lastIpBanWriteUtc = DateTime.MinValue;
-    
+
+    private ServerModeConfig _serverModes = new();
 
     private Timer? cleanupTimer;
     internal static AdminPlus? _instance;
