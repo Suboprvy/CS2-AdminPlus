@@ -501,8 +501,7 @@ public partial class AdminPlus
         Server.ExecuteCommand(cmd);
     }
 
-    Logger.LogInformation(
-        $"{admin.PlayerName} executed server mode {mode.Name}");
+   
 }
     
     private void ShowFunCleanupMenu(CCSPlayerController admin)
@@ -842,7 +841,7 @@ public partial class AdminPlus
         options.Add(new ChatMenuOptionData(Localizer["Menu.Option.Money"], () => ShowMoneyMenu(admin)));
         options.Add(new ChatMenuOptionData(Localizer["Menu.Option.Armor"], () => ShowArmorMenu(admin)));
         options.Add(new ChatMenuOptionData(Localizer["Menu.Fun.Cat.TeamOps"], () => ShowFunTeamOpsMenu(admin)));
-        options.Add(new ChatMenuOptionData("Server Modes", () => ShowServerModesMenu(caller)));
+        options.Add(new ChatMenuOptionData("Server Modes", () => ShowServerModesMenu(admin)));
 
         foreach (var menuOptionData in options)
         {
